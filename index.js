@@ -92,13 +92,18 @@ const questions = [
 
 
 
-// TODO: Include packages needed for this application
-
-// TODO: Create an array of questions for user input
-const questions = [];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log('Success! Your README.md file has been created!')
+    });
+}
+
+const writeFileAsync = util.promisify(writeToFile);
 
 // TODO: Create a function to initialize app
 function init() {}
