@@ -14,7 +14,7 @@ const questions = [
     {
         type: 'input',
         message: 'What is your GitHub username? (No @ required)',
-        name: 'username,
+        name: 'username',
         default: 'dpprdgls',
         validate: function(value) {
             if (value.length < 1) {
@@ -92,8 +92,7 @@ const questions = [
 
 
 
-
-// TODO: Create a function to write README file
+//Function to create the README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
         if (err) {
@@ -106,7 +105,29 @@ function writeToFile(fileName, data) {
 const writeFileAsync = util.promisify(writeToFile);
 
 // TODO: Create a function to initialize app
-function init() {}
+async function init() {
+    try {
+        //Inquirer prompts for userResponses
+        const userResponses = await inquirer.prompt(questions);
+        console.log('Your responses are: ', userResponses);
+        console.log('I appreciate your responses! I will fetch your GitHub data next...');
+
+        //Call GitHub API for user infomation
+        const userInfo = await api.getUser(userResponses);
+        console.log('Your GitHub user information is: ' userInfo);
+
+        //Pass Inquirer userReponses and GitHub userInfo into generateMardown
+        console.log('Generating your README.md file...');
+        const markdown = generateMarkdown(userResponses, userInfo);
+        console.log(markdown);
+
+        //write to file
+        await writeFileAsync('ExampleReadme.md', markdown);
+
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 // Function call to initialize app
 init();
