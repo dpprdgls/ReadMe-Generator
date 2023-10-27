@@ -16,16 +16,17 @@ function generateMarkdown(userResponses, userInfo) {
   if (userResponses.tests!== '') { createTofC += `
   * [Tests](#tests)` };
 
-  
-  let draftMarkdown = `# ${userResponses.title}
-
   //create badges for user
+  let draftMarkdown = 
+  `# ${userResponses.title}
+
+  
   ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor)
   
   Check out the badges hosted by [shields.io](https://shields.io/).
 
 
-  ##Description
+  ## Description
 
   *The purpose, the motivation, the execution:*
 
@@ -43,7 +44,7 @@ function generateMarkdown(userResponses, userInfo) {
   if (userResponses.installation != '') {
     draftMarkdown += `
     
-    ##Installation
+    ## Installation
     
     *Steps required to install project and how to get the development environment running:*
     
@@ -54,7 +55,7 @@ function generateMarkdown(userResponses, userInfo) {
   if (userResponses.usage!== '') {
     draftMarkdown += `
     
-    ##Usage
+    ## Usage
     
     *Instructions and examples for use:*
     
@@ -65,7 +66,7 @@ function generateMarkdown(userResponses, userInfo) {
   if (userResponses.contributions!== '') {
     draftMarkdown += `
     
-    ##Contributing
+    ## Contributing
     
     *Instructions on how other developers can contribute to your project:*
     
@@ -87,7 +88,7 @@ function generateMarkdown(userResponses, userInfo) {
   
     draftMarkdown += `
     
-    ##License
+    ## License
     
     This project is covered under the ${userResponses.license} license.`;
 
@@ -97,9 +98,9 @@ function generateMarkdown(userResponses, userInfo) {
   `
   ---
 
-  ##Questions? 
+  ## Questions? 
 
-  <img src="${userInfo.avatar_url}" alt="${userInfo.login}" width="40% />
+  <img src="${userInfo.avatar_url}" alt="${userInfo.login}" width="40%" />
 
   For any questions or concerns, feel free to contact me using the information below:
   
