@@ -114,7 +114,7 @@ async function init() {
 
         //Call GitHub API for user infomation
         const userInfo = await api.getUser(userResponses);
-        console.log('Your GitHub user information is: ' userInfo);
+        console.log('Your GitHub user information is: ', userInfo);
 
         //Pass Inquirer userReponses and GitHub userInfo into generateMardown
         console.log('Generating your README.md file...');
