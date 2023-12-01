@@ -11,7 +11,7 @@ function generateMarkdown(userResponses, userInfo) {
   * [Usage](#usage)` };
 
   if (userResponses.contributions!== '') { createTofC += `
-  * [Contributing](#contributing)` };
+  * [Contributions](#contributions)` };
 
   if (userResponses.tests!== '') { createTofC += `
   * [Tests](#tests)` };
@@ -66,7 +66,7 @@ function generateMarkdown(userResponses, userInfo) {
   if (userResponses.contributions!== '') {
     draftMarkdown += `
     
-    ## Contributing
+    ## Contributions
     
     *Instructions on how other developers can contribute to your project:*
     
@@ -77,7 +77,7 @@ function generateMarkdown(userResponses, userInfo) {
   if (userResponses.tests!== '') {
     draftMarkdown += `
     
-    ##Tests
+    ## Tests
     
     *Instructions on how to run tests:*
     
@@ -100,7 +100,7 @@ function generateMarkdown(userResponses, userInfo) {
 
   ## Questions? 
 
-  <img src="${userInfo.avatar_url}" alt="${userInfo.login}" width="40%" />
+  <img src="${userInfo.avatar_url}" alt="${userInfo.login}" width="30%" />
 
   For any questions or concerns, feel free to contact me using the information below:
   
@@ -149,30 +149,3 @@ module.exports = generateMarkdown;
 
 
 
-
-
-
-
-
-
-
-// // TODO: Create a function that returns a license badge based on which license is passed in
-// // If there is no license, return an empty string
-// function renderLicenseBadge(license) {}
-
-// // TODO: Create a function that returns the license link
-// // If there is no license, return an empty string
-// function renderLicenseLink(license) {}
-
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
-
-// // TODO: Create a function to generate markdown for README
-// function generateMarkdown(data) {
-//   return `# ${data.title}
-
-// `;
-// }
-
-// module.exports = generateMarkdown;
